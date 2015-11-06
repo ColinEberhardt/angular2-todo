@@ -1,0 +1,27 @@
+{
+  "name": "angular2-goldilocks-seed",
+  "version": "1.0.0",
+  "description": "A seed project for Angular 2 / TypeScript development",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColinEberhardt/angular2-seed.git"
+  },
+  "author": "ceberhardt@scottlogic.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ColinEberhardt/angular2-seed/issues"
+  },
+  "homepage": "https://github.com/ColinEberhardt/angular2-seed#readme",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^3.6.0",
+    "gulp-typescript": "^2.8.0"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-alpha.45",
+    "systemjs": "0.18.4"
+  }
+}

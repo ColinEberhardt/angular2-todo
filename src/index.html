@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular2 seed</title>
+</head>
+
+<body>
+  <greeting>Loading...</greeting>
+</body>
+
+<script src="lib/system-csp-production.js"></script>
+
+<script>
+  // allow modules to be referenced without a 'js' file extension
+  System.config({defaultJSExtensions: true});
+</script>
+<script src="lib/angular2.min.js"></script>
+
+<script>
+  System.import('bootstrap.js')
+    .catch(console.log.bind(console));
+</script>
+
+</html>
