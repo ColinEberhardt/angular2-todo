@@ -7,4 +7,8 @@ import {Component} from 'angular2/angular2';
 })
 export default class ToDoList {
   newItem = 'test';
+
+  addClicked() {
+    console.log('Add clicked', this.newItem);
+  }
 }
