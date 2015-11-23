@@ -6,4 +6,5 @@ import {Component} from 'angular2/angular2';
   styleUrls: ['component/todolist/todolist.css']
 })
 export default class ToDoList {
+  newItem = 'test';
 }
