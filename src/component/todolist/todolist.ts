@@ -1,8 +1,6 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
 import {TodoStore} from './../../store/todoStore';
 
-const store = new TodoStore();
-
 @Component({
   selector: 'todo-list',
   templateUrl: 'component/todolist/todolist.html',
@@ -11,7 +9,11 @@ const store = new TodoStore();
 })
 export default class ToDoList {
   newItem = 'test';
-  items = store.items;
+  store: TodoStore;
+
+  constructor(store: TodoStore) {
+    this.store = store;
+  }
 
   addItem() {
     console.log('Add item', this.newItem);
