@@ -1,4 +1,4 @@
 import {bootstrap} from 'angular2/platform/browser';
-import Greeting from './greeting/greeting';
+import ToDoList from './todolist/todolist';
 
-bootstrap(Greeting);
+bootstrap(ToDoList);
