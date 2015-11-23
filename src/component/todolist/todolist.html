@@ -7,13 +7,11 @@
   </header>
   <section class="main">
   <ul class="todo-list">
-    <template ng-for #item [ng-for-of]="items">
-      <li>
-        <div class="view">
-          <label>{{item.text}}</label>
-        </div>
-      </li>
-    <template>
+    <li *ng-for="#item of items">
+      <div class="view">
+        <label>{{item.text}}</label>
+      </div>
+    </li>
   </ul>
 </section>
 </section>
