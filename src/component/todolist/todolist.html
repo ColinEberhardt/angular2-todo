@@ -5,4 +5,13 @@
       [(ng-model)]="newItem" (keyup.enter)="addItem()">
     <button class="add" (click)="addItem()">Add</button>
   </header>
+  <section class="main">
+  <ul class="todo-list">
+    <li *ng-for="#item of items">
+      <div class="view">
+        <label>{{item.text}}</label>
+      </div>
+    </li>
+  </ul>
+</section>
 </section>
