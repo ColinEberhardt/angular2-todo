@@ -16,6 +16,7 @@ export default class ToDoList {
   }
 
   addItem() {
-    console.log('Add item', this.newItem);
+    this.store.addItem(this.newItem);
+    this.newItem = '';
   }
 }
