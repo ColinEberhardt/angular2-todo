@@ -9,7 +9,7 @@ import {Component, FORM_DIRECTIVES} from 'angular2/angular2';
 export default class ToDoList {
   newItem = 'test';
 
-  addClicked() {
-    console.log('Add clicked', this.newItem);
+  addItem() {
+    console.log('Add item', this.newItem);
   }
 }

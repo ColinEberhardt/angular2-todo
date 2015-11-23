@@ -2,7 +2,7 @@
   <header class="header">
     <h1>todos</h1>
     <input class="new-todo" placeholder="What needs to be done?" autofocus
-      [(ng-model)]="newItem">
-    <button class="add" (click)="addClicked()">Add</button>
+      [(ng-model)]="newItem" (keyup.enter)="addItem()">
+    <button class="add" (click)="addItem()">Add</button>
   </header>
 </section>
