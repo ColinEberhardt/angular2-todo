@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/angular2';
+import {Component, Input, Output, EventEmitter} from 'angular2/angular2';
 import {TodoItem as ToDoItemModel} from './../../store/todoStore';
 
 @Component({
@@ -9,4 +9,12 @@ import {TodoItem as ToDoItemModel} from './../../store/todoStore';
 export default class TodoItem {
   @Input()
   item: ToDoItemModel;
+
+  @Output()
+  done = new EventEmitter();
+
+  doneClicked() {
+    this.done.next(this.item);
+  }
+
 }

@@ -1,5 +1,5 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {TodoStore} from './../../store/todoStore';
+import {TodoStore, TodoItem as TodoModelItem} from './../../store/todoStore';
 import TodoItem from '../todoitem/todoitem';
 
 @Component({
@@ -19,5 +19,9 @@ export default class ToDoList {
   addItem() {
     this.store.addItem(this.newItem);
     this.newItem = '';
+  }
+
+  removeItem(item: TodoModelItem) {
+    this.store.removeItem(item);
   }
 }
