@@ -1,11 +1,12 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
 import {TodoStore} from './../../store/todoStore';
+import TodoItem from '../todoitem/todoitem';
 
 @Component({
   selector: 'todo-list',
   templateUrl: 'component/todolist/todolist.html',
   styleUrls: ['component/todolist/todolist.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, TodoItem]
 })
 export default class ToDoList {
   newItem = 'test';
