@@ -1,26 +1,5 @@
 import { createStore } from 'redux';
-
-export class TodoItem {
-  _text: String;
-
-  get text() {
-    console.log(`getting value for text "${this._text}"`);
-    return this._text;
-  }
-  set text(value) {
-    this._text = value;
-  }
-
-  constructor(text: String) {
-    this._text = text;
-  }
-}
-
-export class Action {
-  mutateState(state: TodoItem[]): TodoItem[] {
-    throw new Error('I am abstract!');
-  }
-}
+import TodoItem from './todoItem';
 
 interface ITodoAction {
   type: string;
@@ -44,7 +23,7 @@ function reducer(state: TodoItem[] = [], action: ITodoAction) {
   }
 }
 
-export class TodoStore {
+export default class TodoStore {
   store = createStore(reducer);
 
   get items(): TodoItem[] {

@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/angular2';
-import {TodoItem as TodoItemModel} from '../../store/todoStore';
+import {default as TodoItemModel} from '../../store/todoItem';
 
 @Component({
   selector: 'todo-item',

@@ -1,5 +1,6 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {TodoStore, TodoItem as TodoModelItem} from '../../store/todoStore';
+import TodoStore from '../../store/todoStore';
+import {default as TodoItemModel} from '../../store/todoItem';
 import TodoItem from '../todoitem/todoitem';
 
 @Component({
@@ -26,7 +27,7 @@ export default class TodoList {
     }
   }
 
-  removeItem(item: TodoModelItem) {
+  removeItem(item: TodoItemModel) {
     this.store.dispatch({
       type: 'REMOVE',
       index: this.store.items.indexOf(item)
