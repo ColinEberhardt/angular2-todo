@@ -6,12 +6,12 @@
     <button class="add" (click)="addItem()">Add</button>
   </header>
   <section class="main">
-  <ul class="todo-list">
-    <li *ng-for="#item of store.items">
-      <todo-item [item]="item"
-        (done)="removeItem($event)">
-      </todo-item>
-    </li>
-  </ul>
-</section>
+    <ul class="todo-list">
+      <li *ng-for="#item of store.items">
+        <todo-item [item]="item"
+          (done)="removeItem($event)">
+        </todo-item>
+      </li>
+    </ul>
+  </section>
 </section>

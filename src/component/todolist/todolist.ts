@@ -1,5 +1,5 @@
 import {Component, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {TodoStore, TodoItem as TodoModelItem} from './../../store/todoStore';
+import {TodoStore, TodoItem as TodoModelItem} from '../../store/todoStore';
 import TodoItem from '../todoitem/todoitem';
 
 @Component({
@@ -8,7 +8,7 @@ import TodoItem from '../todoitem/todoitem';
   styleUrls: ['component/todolist/todolist.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, TodoItem]
 })
-export default class ToDoList {
+export default class TodoList {
   newItem = 'test';
   store: TodoStore;
 
@@ -17,8 +17,10 @@ export default class ToDoList {
   }
 
   addItem() {
-    this.store.addItem(this.newItem);
-    this.newItem = '';
+    if (this.newItem !== '') {
+      this.store.addItem(this.newItem);
+      this.newItem = '';
+    }
   }
 
   removeItem(item: TodoModelItem) {
