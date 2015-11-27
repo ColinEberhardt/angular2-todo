@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import TodoItem from './todoItem';
+import { List } from 'immutable';
 
 interface ITodoAction {
   type: string;
@@ -7,17 +8,12 @@ interface ITodoAction {
   index?: number;
 }
 
-function reducer(state: TodoItem[] = [], action: ITodoAction) {
-  let newState: TodoItem[];
+function reducer(state: List<TodoItem> = List<TodoItem>(), action: ITodoAction) {
   switch (action.type) {
     case 'ADD':
-      newState = state.slice();
-      newState.push(new TodoItem(action.text));
-      return newState;
+      return state.push(new TodoItem(action.text));
     case 'REMOVE':
-      newState = state.slice();
-      newState.splice(action.index, 1);
-      return newState;
+      return state.splice(action.index, 1);
     default:
       return state;
   }
@@ -26,7 +22,7 @@ function reducer(state: TodoItem[] = [], action: ITodoAction) {
 export default class TodoStore {
   store = createStore(reducer);
 
-  get items(): TodoItem[] {
+  get items(): List<TodoItem>[] {
     return this.store.getState();
   }
 

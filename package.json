@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.45",
+    "immutable": "^3.7.5",
     "redux": "^3.0.4",
     "systemjs": "0.18.4"
   }

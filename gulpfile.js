@@ -30,7 +30,8 @@ gulp.task('copy:libs', ['clean'], function() {
   return gulp.src([
       'node_modules/angular2/bundles/angular2.min.js',
       'node_modules/systemjs/dist/system-csp-production.js',
-      'node_modules/redux/dist/redux.js'
+      'node_modules/redux/dist/redux.js',
+      'node_modules/immutable/dist/immutable.js'
     ])
     .pipe(gulp.dest('dist/lib'))
 });

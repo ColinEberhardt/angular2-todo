@@ -17,6 +17,7 @@
   ],
   "files": [
     "typings/redux/redux.d.ts",
+    "node_modules/immutable/dist/immutable.d.ts",
     "src/bootstrap.ts"
   ]
 }
