@@ -2,6 +2,7 @@
   "version": "1.6.2",
   "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
@@ -13,5 +14,9 @@
   },
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    "typings/redux/redux.d.ts",
+    "src/bootstrap.ts"
   ]
 }

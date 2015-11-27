@@ -52,7 +52,7 @@
     "no-debugger": true,
     "no-duplicate-key": true,
     "no-duplicate-variable": true,
-    "no-empty": true,
+    "no-empty": false,
     "no-eval": true,
     "no-inferrable-types": false,
     "no-internal-module": true,
@@ -105,11 +105,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "use-strict": [
-      true,
-      "check-module",
-      "check-function"
-    ],
+    "use-strict": false,
     "variable-name": [
       true,
       "check-format",

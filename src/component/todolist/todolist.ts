@@ -18,12 +18,18 @@ export default class TodoList {
 
   addItem() {
     if (this.newItem !== '') {
-      this.store.addItem(this.newItem);
+      this.store.dispatch({
+        type: 'ADD',
+        text: this.newItem
+      });
       this.newItem = '';
     }
   }
 
   removeItem(item: TodoModelItem) {
-    this.store.removeItem(item);
+    this.store.dispatch({
+      type: 'REMOVE',
+      index: this.store.items.indexOf(item)
+    });
   }
 }

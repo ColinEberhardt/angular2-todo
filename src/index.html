@@ -14,7 +14,12 @@
 
 <script>
   // allow modules to be referenced without a 'js' file extension
-  System.config({defaultJSExtensions: true});
+  System.config({
+    defaultJSExtensions: true,
+    map: {
+      redux: 'lib/redux.js'
+    }
+  });
 </script>
 <script src="lib/angular2.min.js"></script>
 
