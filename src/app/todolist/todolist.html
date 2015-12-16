@@ -7,13 +7,11 @@
   </header>
   <section class="main">
     <ul class="todo-list">
-      <template ngFor #item [ngForOf]="items">
-        <li>
-          <div class="view">
-            <label>{{item.text}}</label>
-          </div>
-        </li>
-      </template>
+      <li *ngFor="#item of items">
+        <div class="view">
+          <label>{{item.text}}</label>
+        </div>
+      </li>
     </ul>
   </section>
 </section>
