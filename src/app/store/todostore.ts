@@ -1,5 +1,18 @@
 export class TodoItem {
-  text: String;
+  _text: String;
+
+  get text() {
+    console.log('getting value for text', this._text);
+    return this._text;
+  }
+  set text(value) {
+    this._text = value;
+  }
+
+  constructor(text: String) {
+    this._text = text;
+  }
+
 }
 
 export class TodoStore {
@@ -10,9 +23,7 @@ export class TodoStore {
   }
 
   addItem(newItem: String) {
-    this.items.push({
-      text: newItem
-    });
+    this.items.push(new TodoItem(newItem));
   }
 
   removeItem(item: TodoItem) {
