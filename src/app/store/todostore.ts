@@ -3,8 +3,15 @@ export class TodoItem {
 }
 
 export class TodoStore {
-  items: TodoItem[] = [
-     {text: 'Feed the cat'},
-     {text: 'Do the shopping'}
-  ];
+  items: TodoItem[];
+
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(newItem: String) {
+    this.items.push({
+      text: newItem
+    });
+  }
 }
