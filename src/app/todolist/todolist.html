@@ -8,9 +8,7 @@
   <section class="main">
     <ul class="todo-list">
       <li *ngFor="#item of store.items">
-        <div class="view">
-          <label>{{item.text}}</label>
-        </div>
+        <todo-item [item]="item"></todo-item>
       </li>
     </ul>
   </section>

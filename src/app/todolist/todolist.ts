@@ -1,10 +1,12 @@
 import {Component} from 'angular2/core';
 import {TodoStore} from './../store/todoStore';
+import TodoItem from '../todoitem/todoitem';
 
 @Component({
   selector: 'todo-list',
   templateUrl: 'app/todolist/todolist.html',
-  styleUrls: ['app/todolist/todolist.css']
+  styleUrls: ['app/todolist/todolist.css'],
+  directives: [TodoItem]
 })
 export default class ToDoList {
   newItem = 'test';
