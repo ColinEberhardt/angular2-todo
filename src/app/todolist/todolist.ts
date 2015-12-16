@@ -8,7 +8,7 @@ import TodoItem from '../todoitem/todoitem';
   styleUrls: ['app/todolist/todolist.css'],
   directives: [TodoItem]
 })
-export default class ToDoList {
+export default class TodoList {
   newItem = 'test';
   store: TodoStore;
 
