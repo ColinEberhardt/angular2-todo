@@ -11,8 +11,4 @@ export default class ToDoList {
   addClicked() {
     console.log('Add clicked', this.newItem);
   }
-
-  newItemChanged(value: string): void {
-    this.newItem = value;
-  }
 }
