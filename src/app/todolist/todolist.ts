@@ -12,8 +12,7 @@ export default class ToDoList {
     console.log('Add clicked', this.newItem);
   }
 
-  newItemChanged(event: KeyboardEvent): void {
-    const target: HTMLInputElement = <HTMLInputElement> event.target;
-    this.newItem = target.value;
+  newItemChanged(value: string): void {
+    this.newItem = value;
   }
 }
