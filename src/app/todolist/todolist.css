@@ -71,8 +71,7 @@ button {
   text-rendering: optimizeLegibility;
 }
 
-.new-todo,
-.edit {
+.new-todo {
   position: relative;
   margin: 0;
   width: 90%;

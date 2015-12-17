@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {TodoStore, TodoItem as TodoModelItem} from './../store/todoStore';
 import TodoItem from '../todoitem/todoitem';
+import ItemUpdatedEvent from '../todoitem/itemupdatedevent';
 
 @Component({
   selector: 'todo-list',
@@ -23,6 +24,10 @@ export default class TodoList {
 
   removeItem(item: TodoModelItem) {
     this.store.removeItem(item);
+  }
+
+  itemUpdated(event: ItemUpdatedEvent) {
+    this.store.updateItem(event.item, event.updatedText);
   }
 
 }

@@ -1,5 +1,5 @@
 export class TodoItem {
-  _text: String;
+  _text: string;
 
   get text() {
     console.log('getting value for text', this._text);
@@ -9,7 +9,7 @@ export class TodoItem {
     this._text = value;
   }
 
-  constructor(text: String) {
+  constructor(text: string) {
     this._text = text;
   }
 
@@ -28,13 +28,22 @@ export class TodoStore {
     }
   }
 
-  addItem(newItem: String) {
+  addItem(newItem: string) {
     this.items.push(new TodoItem(newItem));
-    localStorage.setItem('todolist', JSON.stringify(this.items));
+    this.persistChanges();
+  }
+
+  updateItem(item: TodoItem, updatedText: string) {
+    item.text = updatedText;
+    this.persistChanges();
   }
 
   removeItem(item: TodoItem) {
     const index = this.items.indexOf(item);
     this.items.splice(index, 1);
+  }
+
+  persistChanges() {
+    localStorage.setItem('todolist', JSON.stringify(this.items));
   }
 }

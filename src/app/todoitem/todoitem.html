@@ -1,7 +1,11 @@
 
-<li>
+<li [class.editing]="editMode">
   <div class="view">
-    <label>{{item.text}}</label>
+    <label (dblclick)="enterEditMode()">{{item.text}}</label>
     <button (click)="doneClicked()" class="destroy"></button>
   </div>
+  <input class="edit" [value]="item.text"
+    #todoItemInput
+    (keyup.enter)="commitEdit(todoItemInput.value)"
+    (blur)="commitEdit(todoItemInput.value)">
 </li>
