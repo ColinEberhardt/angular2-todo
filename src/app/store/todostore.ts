@@ -34,7 +34,9 @@ export class TodoStore {
   }
 
   updateItem(item: TodoItem, updatedText: string) {
-    item.text = updatedText;
+    const index = this.items.indexOf(item);
+    const newItem = new TodoItem(updatedText);
+    this.items[index] = newItem;
     this.persistChanges();
   }
 

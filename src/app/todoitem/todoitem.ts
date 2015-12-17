@@ -1,11 +1,12 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
 import {TodoItem as TodoItemModel} from './../store/todoStore';
 import ItemUpdatedEvent from './itemupdatedevent';
 
 @Component({
   selector: 'todo-item',
   templateUrl: 'app/todoitem/todoitem.html',
-  styleUrls: ['app/todoitem/todoitem.css']
+  styleUrls: ['app/todoitem/todoitem.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TodoItem {
   editMode = false;
