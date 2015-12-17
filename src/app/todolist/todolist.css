@@ -111,16 +111,6 @@ button {
   list-style: none;
 }
 
-.todo-list li {
-  position: relative;
-  font-size: 24px;
-  border-bottom: 1px solid #ededed;
-}
-
-.todo-list li:last-child {
-  border-bottom: none;
-}
-
 label {
   white-space: pre;
   word-break: break-word;
