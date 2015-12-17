@@ -19,11 +19,18 @@ export class TodoStore {
   items: TodoItem[];
 
   constructor() {
-    this.items = [];
+    const storedItemsString = <string> localStorage.getItem('todolist');
+    if (storedItemsString) {
+      const storedItems = <Array<any>> JSON.parse(storedItemsString);
+      this.items = storedItems.map(i => new TodoItem(i._text));
+    } else {
+      this.items = [];
+    }
   }
 
   addItem(newItem: String) {
     this.items.push(new TodoItem(newItem));
+    localStorage.setItem('todolist', JSON.stringify(this.items));
   }
 
   removeItem(item: TodoItem) {

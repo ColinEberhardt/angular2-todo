@@ -11,7 +11,16 @@
     "sourceMap": false,
     "noImplicitAny": true
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "filesGlob": [
+    "src/**/*.ts"
+  ],
+  "files": [
+    "src/app/bootstrap.ts",
+    "src/app/store/todoStore.ts",
+    "src/app/todoitem/todoitem.ts",
+    "src/app/todolist/todolist.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
 }
