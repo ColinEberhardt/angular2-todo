@@ -24,8 +24,11 @@ export default class TodoItem {
     this.done.emit(this.item);
   }
 
-  enterEditMode() {
+  enterEditMode(element: HTMLInputElement) {
     this.editMode = true;
+    if (this.editMode) {
+      setTimeout(() => { element.focus(); }, 0);
+    }
   }
 
   commitEdit(updatedText: string) {

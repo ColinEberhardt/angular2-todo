@@ -1,20 +1,19 @@
-import { List } from 'immutable';
+import { List, Map } from 'immutable';
 
 export class TodoItem {
-  _text: string;
+  _data: Map<string, any>;
 
   get text() {
-    console.log('getting value for text', this._text);
-    return this._text;
-  }
-  set text(value) {
-    this._text = value;
+    return <string> this._data.get('text');
   }
 
-  constructor(text: string) {
-    this._text = text;
+  setText(value: string) {
+    return new TodoItem(this._data.set('text', value));
   }
 
+  constructor(data: Map<string, any> = Map<string, any>()) {
+    this._data = data;
+  }
 }
 
 export class TodoStore {
@@ -31,13 +30,14 @@ export class TodoStore {
   }
 
   addItem(newItem: string) {
-    this.items = this.items.push(new TodoItem(newItem));
+    const item = new TodoItem().setText(newItem);
+    this.items = this.items.push(item);
   //  this.persistChanges();
   }
 
   updateItem(item: TodoItem, updatedText: string) {
     const index = this.items.indexOf(item);
-    const newItem = new TodoItem(updatedText);
+    const newItem = item.setText(updatedText);
     this.items = this.items.set(index, newItem);
   //  this.persistChanges();
   }

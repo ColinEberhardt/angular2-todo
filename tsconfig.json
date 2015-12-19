@@ -12,14 +12,16 @@
     "noImplicitAny": true
   },
   "filesGlob": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "node_modules/immutable/dist/*.d.ts"
   ],
   "files": [
     "src/app/bootstrap.ts",
     "src/app/store/todoStore.ts",
     "src/app/todoitem/itemupdatedevent.ts",
     "src/app/todoitem/todoitem.ts",
-    "src/app/todolist/todolist.ts"
+    "src/app/todolist/todolist.ts",
+    "node_modules/immutable/dist/immutable.d.ts"
   ],
   "atom": {
     "rewriteTsconfig": true

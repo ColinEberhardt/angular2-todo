@@ -1,7 +1,7 @@
 
 <li [class.editing]="editMode">
   <div class="view">
-    <label (dblclick)="enterEditMode()">{{item.text}}</label>
+    <label (dblclick)="enterEditMode(todoItemInput)">{{item.text}}</label>
     <button (click)="doneClicked()" class="destroy"></button>
   </div>
   <input class="edit" [value]="item.text"
