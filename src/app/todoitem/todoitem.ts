@@ -31,6 +31,10 @@ export default class TodoItem {
     }
   }
 
+  cancelEdit() {
+    this.editMode = false;
+  }
+
   commitEdit(updatedText: string) {
     this.editMode = false;
     this.itemUpdated.emit({

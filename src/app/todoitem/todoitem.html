@@ -7,5 +7,6 @@
   <input class="edit" [value]="item.text"
     #todoItemInput
     (keyup.enter)="commitEdit(todoItemInput.value)"
+    (keyup.escape)="cancelEdit()"
     (blur)="commitEdit(todoItemInput.value)">
 </li>
