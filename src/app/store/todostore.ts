@@ -11,7 +11,16 @@ export class TodoItem {
     return new TodoItem(this._data.set('text', value));
   }
 
-  constructor(data = {}) {
+  get completed() {
+    return <boolean> this._data.get('completed');
+  }
+
+  setCompleted(value: boolean) {
+    return new TodoItem(this._data.set('completed', value));
+  }
+
+  constructor(data: any = undefined) {
+    data = data || { text: '', completed: false };
     this._data = Map<string, any>(data);
   }
 }
@@ -38,8 +47,15 @@ export class TodoStore {
     this.persistChanges();
   }
 
+  toggleItem(item: TodoItem) {
+    const index = this.items.indexOf(item);
+    const newItem = item.setCompleted(!item.completed);
+    this.items = this.items.set(index, newItem);
+    this.persistChanges();
+  }
+
   removeItem(item: TodoItem) {
-    this.items = List<TodoItem>(this.items.filter(i => i !== item));
+    this.items = List<TodoItem>(this.items.filter((i: TodoItem) => i !== item));
     this.persistChanges();
   }
 

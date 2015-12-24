@@ -10,7 +10,8 @@
       <todo-item *ngFor="#item of store.items"
         [item]="item"
         (done)="removeItem($event)"
-        (itemUpdated)="itemUpdated($event)">
+        (itemUpdated)="itemUpdated($event)"
+        (toggleCompletion)="toggleCompletion($event)">
       </todo-item>
     </ul>
   </section>

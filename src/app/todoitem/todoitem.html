@@ -1,6 +1,7 @@
 
-<li [class.editing]="editMode">
+<li [class.editing]="editMode" [class.completed]="item.completed">
   <div class="view">
+    <input class="toggle" type="checkbox" (click)="toggle()" [checked]="item.completed">
     <label (dblclick)="enterEditMode(todoItemInput)">{{item.text}}</label>
     <button (click)="doneClicked()" class="destroy"></button>
   </div>

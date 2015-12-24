@@ -30,4 +30,8 @@ export default class TodoList {
     this.store.updateItem(event.item, event.updatedText);
   }
 
+  toggleCompletion(event: TodoModelItem) {
+    this.store.toggleItem(event);
+  }
+
 }

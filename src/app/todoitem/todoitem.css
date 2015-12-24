@@ -8,7 +8,7 @@ label {
   transition: color 0.4s;
 }
 
-label.completed {
+li.completed label {
   color: #d9d9d9;
   text-decoration: line-through;
 }
