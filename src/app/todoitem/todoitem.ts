@@ -31,8 +31,9 @@ export default class TodoItem {
     }
   }
 
-  cancelEdit() {
+  cancelEdit(element: HTMLInputElement) {
     this.editMode = false;
+    element.value = this.item.text;
   }
 
   commitEdit(updatedText: string) {

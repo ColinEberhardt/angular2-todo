@@ -20,13 +20,9 @@ export class TodoStore {
   items = List<TodoItem>();
 
   constructor() {
-    const storedItemsString = <string> localStorage.getItem('todolist');
-    if (storedItemsString) {
-      const storedItems = <Array<any>> JSON.parse(storedItemsString);
-      this.items = List<TodoItem>(storedItems.map(i => new TodoItem(i._data)));
-    } else {
-      this.items = List<TodoItem>();
-    }
+    const storedItemsString = <string> localStorage.getItem('todolist') || '[]';
+    const storedItems = <Array<any>> JSON.parse(storedItemsString);
+    this.items = List<TodoItem>(storedItems.map(i => new TodoItem(i._data)));
   }
 
   addItem(newItem: string) {
@@ -43,8 +39,8 @@ export class TodoStore {
   }
 
   removeItem(item: TodoItem) {
-    const index = this.items.indexOf(item);
-    this.items.splice(index, 1);
+    this.items = List<TodoItem>(this.items.filter(i => i !== item));
+    this.persistChanges();
   }
 
   persistChanges() {
