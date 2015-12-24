@@ -2,7 +2,8 @@ import {TodoItem} from './../store/todoStore';
 
 interface ItemUpdatedEvent {
   item: TodoItem;
-  updatedText: string;
+  text?: string;
+  completed?: boolean;
 }
 
 export default ItemUpdatedEvent;

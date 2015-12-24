@@ -27,11 +27,12 @@ export default class TodoList {
   }
 
   itemUpdated(event: ItemUpdatedEvent) {
-    this.store.updateItem(event.item, event.updatedText);
-  }
-
-  toggleCompletion(event: TodoModelItem) {
-    this.store.toggleItem(event);
+    if (event.text !== undefined) {
+      this.store.updateText(event.item, event.text);
+    }
+    if (event.completed !== undefined) {
+      this.store.updatedCompletion(event.item, event.completed);
+    }
   }
 
 }

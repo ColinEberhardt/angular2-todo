@@ -20,15 +20,15 @@ export default class TodoItem {
   @Output()
   itemUpdated = new EventEmitter<ItemUpdatedEvent>();
 
-  @Output()
-  toggleCompletion = new EventEmitter<TodoItemModel>();
-
   doneClicked() {
     this.done.emit(this.item);
   }
 
   toggle() {
-    this.toggleCompletion.emit(this.item);
+    this.itemUpdated.emit({
+      item: this.item,
+      completed: !this.item.completed
+    });
   }
 
   enterEditMode(element: HTMLInputElement) {
@@ -47,7 +47,7 @@ export default class TodoItem {
     this.editMode = false;
     this.itemUpdated.emit({
       item: this.item,
-      updatedText: updatedText
+      text: updatedText
     });
   }
 }

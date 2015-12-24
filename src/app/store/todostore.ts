@@ -40,16 +40,16 @@ export class TodoStore {
     this.persistChanges();
   }
 
-  updateItem(item: TodoItem, updatedText: string) {
+  updateText(item: TodoItem, updatedText: string) {
     const index = this.items.indexOf(item);
     const newItem = item.setText(updatedText);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
   }
 
-  toggleItem(item: TodoItem) {
+  updatedCompletion(item: TodoItem, completed: boolean) {
     const index = this.items.indexOf(item);
-    const newItem = item.setCompleted(!item.completed);
+    const newItem = item.setCompleted(completed);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
   }
