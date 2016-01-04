@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular2 seed</title>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+
+<body>
+  <todo-list>Loading...</todo-list>
+</body>
+
+<script src="lib/angular2-polyfills.js"></script>
+<script src="lib/system.src.js"></script>
+<script src="lib/Rx.js"></script>
+<script src="lib/angular2.dev.js"></script>
+
+<script>
+  System.config({
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    }
+  });
+  System.import('app/bootstrap')
+        .then(null, console.error.bind(console));
+</script>
+
+</html>
