@@ -2,7 +2,7 @@
 
 **UPDATE** This project has been updated for Angular 2.0 beta
 
-This project demonstrates a simple todo list application written with Angular 2 and TypeScript. It accompanies a blog post I have written which describes how this application was written step-by-step. The application and blog post demonstrate the following:
+This project demonstrates a simple todo list application written with Angular 2 and TypeScript. It accompanies [a blog post I have written](http://blog.scottlogic.com/2015/12/07/angular-2.html) which describes how this application was written step-by-step. The application and blog post demonstrate the following:
 
  - Angular 2.0 event and property binding
  - Two-way binding
@@ -12,6 +12,8 @@ This project demonstrates a simple todo list application written with Angular 2 
  - A flux-like approach with a store for persisting data
 
  ![image](screenshot.png)
+ 
+You can also see the application running via [GitHub pages](http://colineberhardt.github.io/angular2-todo/).
 
 ## Getting Started
 
