@@ -1,4 +1,13 @@
-<div class="view">
-  <label>{{item.text}}</label>
-  <button (click)="doneClicked()" class="destroy"></button>
-</div>
+
+<li [class.editing]="editMode" [class.completed]="item.completed">
+  <div class="view">
+    <input class="toggle" type="checkbox" (click)="toggle()" [checked]="item.completed">
+    <label (dblclick)="enterEditMode(todoItemInput)">{{item.text}}</label>
+    <button (click)="doneClicked()" class="destroy"></button>
+  </div>
+  <input class="edit" [value]="item.text"
+    #todoItemInput
+    (keyup.enter)="commitEdit(todoItemInput.value)"
+    (keyup.escape)="cancelEdit(todoItemInput)"
+    (blur)="commitEdit(todoItemInput.value)">
+</li>
