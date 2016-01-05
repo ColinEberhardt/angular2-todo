@@ -26,7 +26,7 @@ export default class TodoItem {
 
   toggle() {
     this.itemUpdated.emit({
-      item: this.item,
+      itemId: this.item.uuid,
       completed: !this.item.completed
     });
   }
@@ -46,7 +46,7 @@ export default class TodoItem {
   commitEdit(updatedText: string) {
     this.editMode = false;
     this.itemUpdated.emit({
-      item: this.item,
+      itemId: this.item.uuid,
       text: updatedText
     });
   }

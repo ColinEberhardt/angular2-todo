@@ -23,19 +23,19 @@ export default class TodoList {
   }
 
   removeItem(item: TodoModelItem) {
-    this.store.removeItem(item);
+    this.store.removeItem(item.uuid);
   }
 
   itemUpdated(event: ItemUpdatedEvent) {
     if (event.text !== undefined) {
       if (event.text === '') {
-        this.store.removeItem(event.item);
+        this.store.removeItem(event.itemId);
       } else {
-        this.store.updateText(event.item, event.text);
+        this.store.updateText(event.itemId, event.text);
       }
     }
     if (event.completed !== undefined) {
-      this.store.updatedCompletion(event.item, event.completed);
+      this.store.updatedCompletion(event.itemId, event.completed);
     }
   }
 

@@ -1,7 +1,5 @@
-import {TodoItem} from './../store/todostore';
-
 interface ItemUpdatedEvent {
-  item: TodoItem;
+  itemId: string;
   text?: string;
   completed?: boolean;
 }

@@ -45,24 +45,24 @@ export class TodoStore {
     this.persistChanges();
   }
 
-  updateText(item: TodoItem, updatedText: string) {
-    const index = this.items.findIndex(i => i.uuid === item.uuid);
-    console.log('updating text for item at index', index, item);
+  updateText(itemId: string, updatedText: string) {
+    const index = this.items.findIndex((i: TodoItem) => i.uuid === itemId);
+    const item = this.items.get(index);
     const newItem = item.setText(updatedText);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
   }
 
-  updatedCompletion(item: TodoItem, completed: boolean) {
-    const index = this.items.findIndex(i => i.uuid === item.uuid);
-    console.log('updating completion for item at index', index, item);
+  updatedCompletion(itemId: string, completed: boolean) {
+    const index = this.items.findIndex((i: TodoItem) => i.uuid === itemId);
+    const item = this.items.get(index);
     const newItem = item.setCompleted(completed);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
   }
 
-  removeItem(item: TodoItem) {
-    this.items = List<TodoItem>(this.items.filter((i: TodoItem) => i !== item));
+  removeItem(itemId: string) {
+    this.items = List<TodoItem>(this.items.filter((i: TodoItem) => i.uuid !== itemId));
     this.persistChanges();
   }
 
