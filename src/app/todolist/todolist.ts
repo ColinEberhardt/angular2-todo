@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {TodoStore, TodoItem as TodoModelItem} from './../store/todoStore';
+import {TodoStore, TodoItem as TodoModelItem} from './../store/todostore';
 import TodoItem from '../todoitem/todoitem';
 import ItemUpdatedEvent from '../todoitem/itemupdatedevent';
 

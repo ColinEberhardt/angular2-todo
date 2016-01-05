@@ -2,6 +2,7 @@
   "version": "1.6.2",
   "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "dist/app",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
@@ -13,14 +14,18 @@
   },
   "filesGlob": [
     "src/**/*.ts",
+    "typings/**/*.d.ts",
     "node_modules/immutable/dist/*.d.ts"
   ],
   "files": [
     "src/app/bootstrap.ts",
-    "src/app/store/todoStore.ts",
+    "src/app/store/todostore.ts",
     "src/app/todoitem/itemupdatedevent.ts",
     "src/app/todoitem/todoitem.ts",
     "src/app/todolist/todolist.ts",
+    "typings/node-uuid/node-uuid-base.d.ts",
+    "typings/node-uuid/node-uuid-global.d.ts",
+    "typings/tsd.d.ts",
     "node_modules/immutable/dist/immutable.d.ts"
   ],
   "atom": {

@@ -1,4 +1,4 @@
-import {TodoItem} from './../store/todoStore';
+import {TodoItem} from './../store/todostore';
 
 interface ItemUpdatedEvent {
   item: TodoItem;

@@ -1,7 +1,12 @@
+/// <reference path="../../../typings/node-uuid/node-uuid-global.d.ts" />
 import { List, Map } from 'immutable';
 
 export class TodoItem {
   _data: Map<string, any>;
+
+  get uuid() {
+    return <string> this._data.get('uuid');
+  }
 
   get text() {
     return <string> this._data.get('text');
@@ -20,7 +25,7 @@ export class TodoItem {
   }
 
   constructor(data: any = undefined) {
-    data = data || { text: '', completed: false };
+    data = data || { text: '', completed: false, uuid: uuid.v4() };
     this._data = Map<string, any>(data);
   }
 }
@@ -41,7 +46,7 @@ export class TodoStore {
   }
 
   updateText(item: TodoItem, updatedText: string) {
-    const index = this.items.indexOf(item);
+    const index = this.items.findIndex(i => i.uuid === item.uuid);
     console.log('updating text for item at index', index, item);
     const newItem = item.setText(updatedText);
     this.items = this.items.set(index, newItem);
@@ -49,7 +54,7 @@ export class TodoStore {
   }
 
   updatedCompletion(item: TodoItem, completed: boolean) {
-    const index = this.items.indexOf(item);
+    const index = this.items.findIndex(i => i.uuid === item.uuid);
     console.log('updating completion for item at index', index, item);
     const newItem = item.setCompleted(completed);
     this.items = this.items.set(index, newItem);
