@@ -28,7 +28,11 @@ export default class TodoList {
 
   itemUpdated(event: ItemUpdatedEvent) {
     if (event.text !== undefined) {
-      this.store.updateText(event.item, event.text);
+      if (event.text === '') {
+        this.store.removeItem(event.item);
+      } else {
+        this.store.updateText(event.item, event.text);
+      }
     }
     if (event.completed !== undefined) {
       this.store.updatedCompletion(event.item, event.completed);

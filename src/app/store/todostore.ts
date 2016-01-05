@@ -42,6 +42,7 @@ export class TodoStore {
 
   updateText(item: TodoItem, updatedText: string) {
     const index = this.items.indexOf(item);
+    console.log('updating text for item at index', index, item);
     const newItem = item.setText(updatedText);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
@@ -49,6 +50,7 @@ export class TodoStore {
 
   updatedCompletion(item: TodoItem, completed: boolean) {
     const index = this.items.indexOf(item);
+    console.log('updating completion for item at index', index, item);
     const newItem = item.setCompleted(completed);
     this.items = this.items.set(index, newItem);
     this.persistChanges();
