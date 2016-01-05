@@ -8,7 +8,7 @@ label {
   transition: color 0.4s;
 }
 
-label.completed {
+li.completed label {
   color: #d9d9d9;
   text-decoration: line-through;
 }
@@ -67,4 +67,50 @@ label.completed {
 .toggle {
   background: none;
   height: 40px;
+}
+
+li {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+li .edit {
+	display: none;
+}
+
+.todo-list li.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+li.editing .edit {
+	display: block;
+	width: 506px;
+	padding: 13px 17px 12px 17px;
+	margin: 0 0 0 43px;
+}
+
+li.editing .view {
+	display: none;
+}
+
+.edit {
+  position: relative;
+  margin: 0;
+  width: 90%;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  color: inherit;
+  padding: 6px;
+  border: 1px solid #999;
+  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }

@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
-import {TodoItem as TodoItemModel} from './../store/todoStore';
+import {TodoItem as TodoItemModel} from './../store/todostore';
+import ItemUpdatedEvent from './itemupdatedevent';
 
 @Component({
   selector: 'todo-item',
@@ -8,13 +9,45 @@ import {TodoItem as TodoItemModel} from './../store/todoStore';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TodoItem {
+  editMode = false;
+
   @Input()
   item: TodoItemModel;
 
   @Output()
-  done = new EventEmitter();
+  done = new EventEmitter<TodoItemModel>();
+
+  @Output()
+  itemUpdated = new EventEmitter<ItemUpdatedEvent>();
 
   doneClicked() {
-    this.done.next(this.item);
+    this.done.emit(this.item);
+  }
+
+  toggle() {
+    this.itemUpdated.emit({
+      itemId: this.item.uuid,
+      completed: !this.item.completed
+    });
+  }
+
+  enterEditMode(element: HTMLInputElement) {
+    this.editMode = true;
+    if (this.editMode) {
+      setTimeout(() => { element.focus(); }, 0);
+    }
+  }
+
+  cancelEdit(element: HTMLInputElement) {
+    this.editMode = false;
+    element.value = this.item.text;
+  }
+
+  commitEdit(updatedText: string) {
+    this.editMode = false;
+    this.itemUpdated.emit({
+      itemId: this.item.uuid,
+      text: updatedText
+    });
   }
 }
