@@ -1,11 +1,38 @@
 import { List } from 'immutable';
 import { TodoItem } from './todoitem';
-//import { createStore } from 'redux';
+import { createStore } from 'redux';
+
+interface ITodoAction {
+  type: string;
+  text?: string;
+  index?: number;
+}
+
+function reducer(state: List<TodoItem> = List<TodoItem>(), action: ITodoAction) {
+  'use strict';
+  switch (action.type) {
+    case 'ADD':
+      return state.push(new TodoItem().setText(action.text));
+    case 'REMOVE':
+      return state.splice(action.index, 1);
+    default:
+      return state;
+  }
+}
+
 
 export default class TodoStore {
-  items = List<TodoItem>();
+  store = createStore(reducer);
 
-  constructor() {
+  get items(): List<TodoItem>[] {
+    return this.store.getState();
+  }
+
+  dispatch(action: ITodoAction) {
+    this.store.dispatch(action);
+  }
+
+  /*constructor() {
     const storedItemsString = <string> localStorage.getItem('todolist') || '[]';
     const storedItems = <Array<any>> JSON.parse(storedItemsString);
     this.items = List<TodoItem>(storedItems.map(i => new TodoItem(i._data)));
@@ -40,5 +67,5 @@ export default class TodoStore {
 
   persistChanges() {
     localStorage.setItem('todolist', JSON.stringify(this.items.toJS()));
-  }
+  }*/
 }

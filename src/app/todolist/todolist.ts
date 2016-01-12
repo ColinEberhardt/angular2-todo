@@ -19,25 +19,30 @@ export default class TodoList {
   }
 
   addItem() {
-    this.store.addItem(this.newItem);
+    // this.store.addItem(this.newItem);
+    // this.newItem = '';
+    this.store.dispatch({
+      type: 'ADD',
+      text: this.newItem
+    });
     this.newItem = '';
   }
 
   removeItem(item: TodoModelItem) {
-    this.store.removeItem(item.uuid);
+    // this.store.removeItem(item.uuid);
   }
 
   itemUpdated(event: ItemUpdatedEvent) {
-    if (event.text !== undefined) {
-      if (event.text === '') {
-        this.store.removeItem(event.itemId);
-      } else {
-        this.store.updateText(event.itemId, event.text);
-      }
-    }
-    if (event.completed !== undefined) {
-      this.store.updatedCompletion(event.itemId, event.completed);
-    }
+    // if (event.text !== undefined) {
+    //   if (event.text === '') {
+    //     this.store.removeItem(event.itemId);
+    //   } else {
+    //     this.store.updateText(event.itemId, event.text);
+    //   }
+    // }
+    // if (event.completed !== undefined) {
+    //   this.store.updatedCompletion(event.itemId, event.completed);
+    // }
   }
 
 }

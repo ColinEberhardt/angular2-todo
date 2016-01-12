@@ -42,11 +42,11 @@ gulp.task('copy:libs', ['clean'], function() {
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
   return gulp
-    .src(paths.srcTsFiles)
+    .src(tscConfig.files)
     .pipe(sourcemaps.init())
     .pipe(typescript(tscConfig.compilerOptions))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.dist + '/app'));
 });
 
 // linting
