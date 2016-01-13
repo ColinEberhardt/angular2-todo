@@ -43,12 +43,11 @@ gulp.task('copy:libs', ['clean'], function() {
 gulp.task('compile', ['clean'], function () {
   // load the tsconfig each time as it changes!
   const tscConfig = JSON.parse(fs.readFileSync('./tsconfig.json', 'UTF8'));
-  console.log(tscConfig.files);
   return gulp
     .src(tscConfig.files)
     .pipe(sourcemaps.init())
     .pipe(typescript(tscConfig.compilerOptions))
-    .pipe(sourcemaps.write('./maps'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist + '/app'));
 });
 

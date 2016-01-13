@@ -11,13 +11,14 @@ export default class TodoStore {
     const storedItems = <Array<any>> JSON.parse(storedItemsString);
     const items = List<TodoItem>(storedItems.map(i => new TodoItem(i._data)));
     this.store = createStore(reducer, items);
+
     this.store.subscribe(() => {
       localStorage.setItem('todolist', JSON.stringify(this.items.toJS()));
     });
   }
 
 
-  get items(): List<TodoItem>[] {
+  get items(): List<TodoItem> {
     return this.store.getState();
   }
 
