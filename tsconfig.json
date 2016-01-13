@@ -19,6 +19,7 @@
   ],
   "files": [
     "src/app/bootstrap.ts",
+    "src/app/store/reducer.ts",
     "src/app/store/todoitem.ts",
     "src/app/store/todostore.ts",
     "src/app/todoitem/itemupdatedevent.ts",

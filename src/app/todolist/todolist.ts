@@ -19,8 +19,6 @@ export default class TodoList {
   }
 
   addItem() {
-    // this.store.addItem(this.newItem);
-    // this.newItem = '';
     this.store.dispatch({
       type: 'ADD',
       text: this.newItem
@@ -29,20 +27,34 @@ export default class TodoList {
   }
 
   removeItem(item: TodoModelItem) {
-    // this.store.removeItem(item.uuid);
+    this.store.dispatch({
+      type: 'REMOVE',
+      itemId: item.uuid
+    });
   }
 
   itemUpdated(event: ItemUpdatedEvent) {
-    // if (event.text !== undefined) {
-    //   if (event.text === '') {
-    //     this.store.removeItem(event.itemId);
-    //   } else {
-    //     this.store.updateText(event.itemId, event.text);
-    //   }
-    // }
-    // if (event.completed !== undefined) {
-    //   this.store.updatedCompletion(event.itemId, event.completed);
-    // }
+    if (event.text !== undefined) {
+      if (event.text === '') {
+        this.store.dispatch({
+          type: 'REMOVE',
+          itemId: event.itemId
+        });
+      } else {
+        this.store.dispatch({
+          type: 'UPDATE_ITEM_TEXT',
+          itemId: event.itemId,
+          text: event.text
+        });
+      }
+    }
+    if (event.completed !== undefined) {
+       this.store.dispatch({
+         type: 'UPDATE_ITEM_COMPLETION',
+         itemId: event.itemId,
+         completed: event.completed
+       });
+     }
   }
 
 }
