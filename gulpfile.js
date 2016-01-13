@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const del = require('del');
+const fs = require('fs');
 const typescript = require('gulp-typescript');
 const sourcemaps = require('gulp-sourcemaps');
-const tscConfig = require('./tsconfig.json');
 const browserSync = require('browser-sync');
 const tslint = require('gulp-tslint');
 const reload = browserSync.reload;
@@ -41,6 +41,9 @@ gulp.task('copy:libs', ['clean'], function() {
 
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
+  // load the tsconfig each time as it changes!
+  const tscConfig = JSON.parse(fs.readFileSync('./tsconfig.json', 'UTF8'));
+  console.log(tscConfig.files);
   return gulp
     .src(tscConfig.files)
     .pipe(sourcemaps.init())

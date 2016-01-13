@@ -15,13 +15,13 @@ export default class TodoItem {
   item: TodoItemModel;
 
   @Output()
-  done = new EventEmitter<TodoItemModel>();
+  done = new EventEmitter<string>();
 
   @Output()
   itemUpdated = new EventEmitter<ItemUpdatedEvent>();
 
   doneClicked() {
-    this.done.emit(this.item);
+    this.done.emit(this.item.uuid);
   }
 
   toggle() {

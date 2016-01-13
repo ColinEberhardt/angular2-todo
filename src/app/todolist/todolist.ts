@@ -1,8 +1,8 @@
 import {Component} from 'angular2/core';
-import TodoStore from './../store/todostore';
-import {TodoItem as TodoModelItem} from './../store/todoitem';
+import TodoStore from '../store/todostore';
 import TodoItem from '../todoitem/todoitem';
 import ItemUpdatedEvent from '../todoitem/itemupdatedevent';
+import {addItem, removeItem, updateItemText, updateItemCompletion} from '../store/actions';
 
 @Component({
   selector: 'todo-list',
@@ -19,42 +19,25 @@ export default class TodoList {
   }
 
   addItem() {
-    this.store.dispatch({
-      type: 'ADD',
-      text: this.newItem
-    });
+    this.store.dispatch(addItem(this.newItem));
     this.newItem = '';
   }
 
-  removeItem(item: TodoModelItem) {
-    this.store.dispatch({
-      type: 'REMOVE',
-      itemId: item.uuid
-    });
+  removeItem(itemId: string) {
+    this.store.dispatch(removeItem(itemId));
   }
 
   itemUpdated(event: ItemUpdatedEvent) {
     if (event.text !== undefined) {
       if (event.text === '') {
-        this.store.dispatch({
-          type: 'REMOVE',
-          itemId: event.itemId
-        });
+        this.store.dispatch(removeItem(event.itemId));
       } else {
-        this.store.dispatch({
-          type: 'UPDATE_ITEM_TEXT',
-          itemId: event.itemId,
-          text: event.text
-        });
+        this.store.dispatch(updateItemText(event.itemId, event.text));
       }
     }
     if (event.completed !== undefined) {
-       this.store.dispatch({
-         type: 'UPDATE_ITEM_COMPLETION',
-         itemId: event.itemId,
-         completed: event.completed
-       });
-     }
+      this.store.dispatch(updateItemCompletion(event.itemId, event.completed));
+    }
   }
 
 }

@@ -99,11 +99,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "use-strict": [
-      true,
-      "check-module",
-      "check-function"
-    ],
+    "use-strict": false,
     "variable-name": [
       true,
       "check-format",
