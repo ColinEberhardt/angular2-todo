@@ -119,3 +119,21 @@ label {
   line-height: 1.2;
   transition: color 0.4s;
 }
+
+.left-pane {
+  width: 40%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  position: absolute;
+}
+
+.right-pane {
+  width: 50%;
+  top: 0;
+  left: 45%;
+  bottom: 0;
+  height: 100vh;
+  position: absolute;
+}

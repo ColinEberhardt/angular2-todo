@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import TodoStore from '../store/todostore';
 import TodoItem from '../todoitem/todoitem';
+import StateList from '../devtools/statelist';
 import ItemUpdatedEvent from '../todoitem/itemupdatedevent';
 import {addItem, removeItem, updateItemText, updateItemCompletion} from '../store/actions';
 
@@ -8,7 +9,7 @@ import {addItem, removeItem, updateItemText, updateItemCompletion} from '../stor
   selector: 'todo-list',
   templateUrl: 'app/todolist/todolist.html',
   styleUrls: ['app/todolist/todolist.css'],
-  directives: [TodoItem]
+  directives: [TodoItem, StateList]
 })
 export default class TodoList {
   newItem = 'test';

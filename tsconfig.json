@@ -19,6 +19,10 @@
   ],
   "files": [
     "src/app/bootstrap.ts",
+    "src/app/devtools/rollbackaction.ts",
+    "src/app/devtools/statelist.ts",
+    "src/app/devtools/statemonitor.ts",
+    "src/app/devtools/stringify.ts",
     "src/app/store/actions.ts",
     "src/app/store/reducer.ts",
     "src/app/store/todoitem.ts",

@@ -1,0 +1,9 @@
+<section class='statelist'>
+  <h2>State</h2>
+  <ol>
+    <li *ngFor="#logItem of monitor.stateLog" (click)="logItemClicked(logItem)">
+      <div><b>action: </b><pre>{{logItem.action | stringify}}</pre></div>
+      <div><b>state: </b><pre>{{logItem.state | stringify}}</pre></div>
+    </li>
+  </ol>
+</section>
